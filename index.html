@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Changer</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        text-align: center;
+      }
+      .displayImage img{
+        height: 300px;
+        border: 2px solid blue;
+        border-radius: 10px;
+      }
+      .displayImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .cityNameBtn{
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 15px;
+        background-color: white;
+        margin-top: 2.5px;
+        cursor: pointer;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 300;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image Changer</h1>
+    <div class="app">
+      <div class="displayImage">
+        <img src="https://media.istockphoto.com/id/1347665170/photo/london-at-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=BXmesdpX792W-ZdTDT3RrTChn3sUCwEUWKipT0mj2p8=" alt="cityImage" />
+        <button class="cityNameBtn">London</button>
+      </div>
+    </div>
+
+    <script>
+      let img = document.querySelector('img');
+      let prevUrl = img.src;
+      let btn = document.querySelector('.cityNameBtn');
+      let prevText = btn.innerText;
+      img.addEventListener('mouseover',()=>{
+        img.src = 'https://media.istockphoto.com/id/1145422105/photo/eiffel-tower-aerial-view-paris.webp?a=1&b=1&s=612x612&w=0&k=20&c=XlwXc4XRPlMBfJVjuHwgS4WTPC4G8eJ9pGX_4ATfdQk=';
+        btn.innerText = "Paris";
+        img.style.border = "yellow";
+        })
+        img.addEventListener('mouseleave',()=>{
+          img.src = prevUrl;
+          btn.innerText = prevText;
+          img.style.border = "blue";
+        })
+    </script>
+  </body>
+</html>
